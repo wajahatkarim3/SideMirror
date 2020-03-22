@@ -9,6 +9,9 @@
     <description><![CDATA[
     Mirror your connected Android devices with <a href="https://github.com/Genymobile/scrcpy">scrcpy</a> directly from Android Studio.<br><br>
     Made with ❤ by <a href="https://wajahatkarim.com">Wajahat Karim</a> and Side Mirror <a href="https://github.com/wajahatkarim3/SideMirror/graphs/contributors">contributors</a>.
+
+    <img src="https://raw.githubusercontent.com/wajahatkarim3/SideMirror/master/SideMirror_demo.gif"/>
+
     ]]></description>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html

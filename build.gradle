@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '0.4.16'
+}
+
+group 'com.wajahatkarim3'
+artifact 'mirror'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+// See https://github.com/JetBrains/gradle-intellij-plugin/
+intellij {
+    version '2019.2'
+    // alternativeIdePath 'C:/Users/wajahat.karim/AppData/Local/JetBrains/Toolbox/apps/AndroidStudio/ch-2/193.6296804'      // 4.0 Beta 3   - 2019.2
+    alternativeIdePath 'C:/Users/wajahat.karim/AppData/Local/JetBrains/Toolbox/apps/AndroidStudio/ch-0/192.6241897'         // 3.6.1 Stable - 2019.2
+}
+patchPluginXml {
+    changeNotes """
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>"""
+}

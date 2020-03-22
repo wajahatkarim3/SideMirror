@@ -1,0 +1,27 @@
+<idea-plugin>
+    <id>com.wajahatkarim3.sidemirror</id>
+    <name>Side Mirror</name>
+    <vendor email="wajahatkarim3@gmail.com" url="https://wajahatkarim.com">Wajahat Karim</vendor>
+
+    <description><![CDATA[
+    Enter short description for your plugin here.<br>
+    <em>most HTML tags may be used</em>
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+<!--    <depends>com.intellij.modules.ultimate</depends>-->
+<!--    <depends>com.intellij.modules.androidstudio</depends>-->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action class="com.wajahatkarim3.mirror.MirrorLauncher" id="mirror.launcher" text="Mirror Launcher" description="Launches the specified mirror (either scrcpy or Vysor)" icon="/icons/screen.png">
+            <add-to-group group-id="MainToolBar" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>

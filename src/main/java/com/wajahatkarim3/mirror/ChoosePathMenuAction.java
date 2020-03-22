@@ -31,7 +31,7 @@ public class ChoosePathMenuAction extends AnAction {
     private void showChoosePathDialog(Project project)
     {
         ChoosePathDialog pathDialog = new ChoosePathDialog(project, null);
-        pathDialog.setTitle("Choose scrcpy / Vysor EXE path.");
+        pathDialog.setTitle("Choose scrcpy EXE path");
         pathDialog.setSize(new Dimension(300, 150));
         pathDialog.setMaximumSize(new Dimension(300, 150));
         pathDialog.setPreferredSize(new Dimension(300, 150));

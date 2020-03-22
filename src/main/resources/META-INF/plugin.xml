@@ -4,6 +4,8 @@
     <version>1.0.0</version>
     <vendor email="wajahatkarim3@gmail.com" url="https://wajahatkarim.com">Wajahat Karim</vendor>
 
+    <idea-version since-build="107.105"/>
+
     <description><![CDATA[
     Mirror your connected Android devices with <a href="https://github.com/Genymobile/scrcpy">scrcpy</a> directly from Android Studio.<br><br>
     Made with ❤ by <a href="https://wajahatkarim.com">Wajahat Karim</a> and Side Mirror <a href="https://github.com/wajahatkarim3/SideMirror/graphs/contributors">contributors</a>.

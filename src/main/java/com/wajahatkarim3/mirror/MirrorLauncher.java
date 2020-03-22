@@ -57,19 +57,19 @@ public class MirrorLauncher extends AnAction {
 
     private void showChoosePathDialog(Project project)
     {
-        ChooseMirrorPathDialog dialogExample = new ChooseMirrorPathDialog(project, new MirrorPathSelectedCallback() {
+        ChoosePathDialog pathDialog = new ChoosePathDialog(project, new MirrorPathSelectedCallback() {
             @Override
             public void onPathSelected(String path) {
                 launchScrcpy(path, project);
             }
         });
-        dialogExample.setTitle("Choose scrcpy / Vysor EXE path.");
-        dialogExample.setSize(new Dimension(300, 150));
-        dialogExample.setMaximumSize(new Dimension(300, 150));
-        dialogExample.setPreferredSize(new Dimension(300, 150));
-        dialogExample.setMinimumSize(new Dimension(300, 150));
-        dialogExample.setLocationByPlatform(true);
-        dialogExample.setLocationRelativeTo(null);
-        dialogExample.setVisible(true);
+        pathDialog.setTitle("Choose scrcpy / Vysor EXE path.");
+        pathDialog.setSize(new Dimension(300, 150));
+        pathDialog.setMaximumSize(new Dimension(300, 150));
+        pathDialog.setPreferredSize(new Dimension(300, 150));
+        pathDialog.setMinimumSize(new Dimension(300, 150));
+        pathDialog.setLocationByPlatform(true);
+        pathDialog.setLocationRelativeTo(null);
+        pathDialog.setVisible(true);
     }
 }

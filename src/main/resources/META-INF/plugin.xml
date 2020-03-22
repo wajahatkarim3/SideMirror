@@ -19,9 +19,17 @@
     </extensions>
 
     <actions>
-        <!-- Add your actions here -->
+        <!-- Mirror Launcher -->
         <action class="com.wajahatkarim3.mirror.MirrorLauncher" id="mirror.launcher" text="Mirror Launcher" description="Launches the specified mirror (either scrcpy or Vysor)" icon="/icons/screen.png">
             <add-to-group group-id="MainToolBar" anchor="last"/>
         </action>
+
+        <!-- Change Mirror Path Dialog -->
+        <group id="org.intellij.sdk.action.GroupedActions" text="Side Mirror" popup="true" icon="/icons/screen.png">
+            <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="com.wajahatkarim3.mirror.ChoosePathMenuAction"/>
+            <action class="com.wajahatkarim3.mirror.ChoosePathMenuAction" id="org.intellij.sdk.action.GroupPopDialogAction"
+                    text="A Group Action" description="Change Mirror Path" icon="/icons/screen.png">
+            </action>
+        </group>
     </actions>
 </idea-plugin>

@@ -1,26 +1,31 @@
 <idea-plugin>
     <id>com.wajahatkarim3.sidemirror</id>
     <name>Side Mirror</name>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <vendor email="wajahatkarim3@gmail.com" url="https://wajahatkarim.com">Wajahat Karim</vendor>
 
-    <idea-version since-build="107.105"/>
+    <idea-version since-build="173"/>
 
     <description><![CDATA[
     Mirror your connected Android devices with <a href="https://github.com/Genymobile/scrcpy">scrcpy</a> directly from Android Studio.<br><br>
     Made with ❤ by <a href="https://wajahatkarim.com">Wajahat Karim</a> and Side Mirror <a href="https://github.com/wajahatkarim3/SideMirror/graphs/contributors">contributors</a>.
 
-    <img src="https://raw.githubusercontent.com/wajahatkarim3/SideMirror/master/SideMirror_demo.gif"/>
+    <br><img src="https://raw.githubusercontent.com/wajahatkarim3/SideMirror/master/SideMirror_demo.gif"/>
 
     ]]></description>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
     <depends>com.intellij.modules.platform</depends>
-<!--    <depends>com.intellij.modules.ultimate</depends>-->
-<!--    <depends>com.intellij.modules.androidstudio</depends>-->
+    <depends>org.jetbrains.android</depends>
 
     <change-notes><![CDATA[
+        <h3>1.0.1: Added icon in Navigation Bar for Android Studio</h3>
+        <ul>
+            <li>Adds Side Mirror launcher icon in Navigation Bar if Toolbar is hidden</li>
+            <li>Supports only Android Studio 3.6 or later</li>
+        </ul>
+
         <h3>1.0.0: Initial release of Side Mirror:</h3>
         <ul>
             <li>Support Android Studio 3.6 or later</li>
@@ -37,6 +42,7 @@
         <!-- Mirror Launcher -->
         <action class="com.wajahatkarim3.mirror.MirrorLauncher" id="mirror.launcher" text="Mirror Launcher" description="Launches the specified mirror (either scrcpy or Vysor)" icon="/icons/sidemirror.png">
             <add-to-group group-id="MainToolBar" anchor="last"/>
+            <add-to-group group-id="Android.NavBarToolBar" anchor="last"/>
         </action>
 
         <!-- Options in Tools Menu -->

@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'com.wajahatkarim3'
-version '1.0.0'
+version '1.0.1'
 
 sourceCompatibility = 1.8
 
@@ -26,6 +26,12 @@ intellij {
 }
 patchPluginXml {
     changeNotes """
+      <h3>1.0.1: Added icon in Navigation Bar for Android Studio</h3>
+        <ul>
+            <li>Adds Side Mirror launcher icon in Navigation Bar if Toolbar is hidden</li>
+            <li>Supports only Android Studio 3.6 or later</li>
+        </ul>
+
       <h3>1.0.0: Initial release of Side Mirror:</h3>
         <ul>
             <li>Support Android Studio 3.6 or later</li>

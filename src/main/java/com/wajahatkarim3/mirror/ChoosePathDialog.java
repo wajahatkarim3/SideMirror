@@ -49,7 +49,7 @@ public class ChoosePathDialog extends JDialog {
                 descriptor.withFileFilter(new Condition<VirtualFile>() {
                     @Override
                     public boolean value(VirtualFile virtualFile) {
-                        return virtualFile != null && virtualFile.getExtension() != null && virtualFile.getExtension().equalsIgnoreCase("exe");
+                        return virtualFile != null;
                     }
                 });
 

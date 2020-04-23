@@ -9,8 +9,10 @@ import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NotNull;
 
+import javax.swing.*;
 import java.awt.*;
 import java.io.File;
+import java.io.IOException;
 
 /**
  * The Action button on the main toolbar of IntelliJ Java IDE and Android Studio to launch the mirror directly.
@@ -28,7 +30,6 @@ public class MirrorLauncher extends AnAction {
     public void actionPerformed(@NotNull AnActionEvent anActionEvent) {
         Project project = anActionEvent.getProject();
 
-        //PropertiesComponent.getInstance().setValue(MIRROR_PATH_KEY, null);
         if (PropertiesComponent.getInstance().isValueSet(MIRROR_PATH_KEY))
         {
             String mirrorPath = PropertiesComponent.getInstance().getValue(MIRROR_PATH_KEY);
@@ -50,9 +51,38 @@ public class MirrorLauncher extends AnAction {
     private void launchScrcpy(String mirrorPath, Project project)
     {
         VirtualFile file = LocalFileSystem.getInstance().findFileByIoFile(new File(mirrorPath));
-        if (file == null) return;
+        if (file == null) {
+            JOptionPane.showMessageDialog(null, "The selected file maybe moved or removed. \n\nSelect the path again by Tools -> Side Mirror -> Choose Mirror Path option.", "Error", JOptionPane.ERROR_MESSAGE);
+            showChoosePathDialog(project);
+            return;
+        }
 
-        new OpenFileDescriptor(project, file).navigate(true);
+        String[] cmd = { mirrorPath };
+        try {
+            if (OsUtils.getOperatingSystemType() == OsUtils.OSType.Windows)
+            {
+                Process p = Runtime.getRuntime().exec(cmd);
+            }
+            else if (OsUtils.getOperatingSystemType() == OsUtils.OSType.MacOS)
+            {
+                ProcessBuilder processBuilder = new ProcessBuilder("open", mirrorPath);
+                Process p = processBuilder.start();
+                int exitCode = p.waitFor();
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Side Mirror is not supported on your OS currently.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "The selected file seems not be the correct type. \n\nSelect the path again by Tools -> Side Mirror -> Choose Mirror Path option.", "Error", JOptionPane.ERROR_MESSAGE);
+            showChoosePathDialog(project);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "The selected file seems not be the correct type. \n\nSelect the path again by Tools -> Side Mirror -> Choose Mirror Path option.", "Error", JOptionPane.ERROR_MESSAGE);
+            showChoosePathDialog(project);
+        }
     }
 
     private void showChoosePathDialog(Project project)
@@ -63,7 +93,7 @@ public class MirrorLauncher extends AnAction {
                 launchScrcpy(path, project);
             }
         });
-        pathDialog.setTitle("Choose scrcpy EXE path.");
+        pathDialog.setTitle("Choose your mirror path such as scrcpy or Vysor.");
         pathDialog.setSize(new Dimension(300, 150));
         pathDialog.setMaximumSize(new Dimension(300, 150));
         pathDialog.setPreferredSize(new Dimension(300, 150));

@@ -38,7 +38,8 @@
 ## 💻 Installation
 1. Install the plugin from Android Studio plugins (File -> Settings -> Plugins -> search) and Restart IDE.
 2. Download and install [scrcpy from this link](https://github.com/genymobile/scrcpy).
-3. Click on Side Mirror option in Toolbar and set the path to scrcpy EXE file.
+3. **Windows:** Click on Side Mirror option in Toolbar and set the path to scrcpy EXE file.
+   <br>**Mac OS:** Search the path of scrcpy command in Finder and set it in the Change Path dialog of Side Mirror. It would look like something similar to `/usr/local/Cellar/scrcpy/1.12.1/bin/scrcpy`. 
 4. Now, this will start the scrcpy when you press Side Mirror button.
 5. All done!
 
